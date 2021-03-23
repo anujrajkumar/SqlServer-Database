@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: Hosted VS2017
 
 steps:
 - script: echo Hello, world!
@@ -18,10 +18,12 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
   
-  - task: MSBuild@1
+- task: MSBuild@1
     inputs:
-      solution: 'SqlServerDatabase.sln'
-      msbuildArguments: '/p:OutDir=$(Build.ArtifactStagingDirectory)'
+    Valid values: "PowerShell@2"
+    solution: '**/*.sln'
+    msbuildArguments: '/p:OutDir=$(Build.ArtifactStagingDirectory)'
+ 
       
 - task: PublishBuildArtifacts@1
   inputs:
