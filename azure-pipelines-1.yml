@@ -20,7 +20,6 @@ steps:
   
 - task: MSBuild@1
     inputs:
-    Valid values: "PowerShell@2"
     solution: '**/*.sln'
     msbuildArguments: '/p:OutDir=$(Build.ArtifactStagingDirectory)'
  
